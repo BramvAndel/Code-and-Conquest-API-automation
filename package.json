@@ -6,7 +6,7 @@
     "start": "node run.js"
   },
   "author": "BramvAndel",
-  "license": "ISC",
+  "license": "PRIVATE USE",
   "description": "",
   "dependencies": {
     "dotenv": "^16.0.0"
