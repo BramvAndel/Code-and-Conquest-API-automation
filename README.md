@@ -24,8 +24,8 @@ Create a `.env` file in the project root (or export environment variables) with 
 
 ```env
 BEARER_TOKEN=your_api_bearer_token_here
-DELAY_TIME=2000                # milliseconds between API calls
-PREFERRED_DIFFICULTY=hard      # e.g. hard | medium | easy
+DELAY_TIME=2000               # milliseconds between API calls
+PREFERRED_DIFFICULTY=hard     # e.g. hard | medium | easy
 ENERGY_THRESHOLD=1            # numeric threshold for taking actions
 ```
 
@@ -59,11 +59,6 @@ node run.js
 # or
 npm start
 ```
-
-Other useful flags (coming soon):
-
-- `--help` / `-h` — print help
-- `--once` — run `main()` once and exit (not implemented)
 
 ## Behavior and design notes
 
