@@ -76,6 +76,17 @@ npm start
 
 - If you see HTTP 429 errors frequently, increase `DELAY_TIME`.
 
+## Future plans and features
+
+Planned improvements and short-term roadmap:
+
+- CLI flags (high priority)
+
+  - `--help` / `-h` — list available flags and usage examples.
+  - `--once` — run the `main()` cycle one time and exit (useful for CI and debugging).
+
+  more features may come in the future
+
 ## License
 
 All rights reserved. See the `LICENSE` file for full terms.
