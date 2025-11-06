@@ -2,12 +2,22 @@ const { ApiClient } = require("./src/apiClient");
 const { MissionSolver } = require("./src/missionSolver");
 const { Bot } = require("./src/bot");
 const { config, validateConfig } = require("./src/config");
-const { log } = require("console");
-const { send } = require("process");
 
 // Parse CLI args early
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run") || args.includes("-n");
+const once = args.includes("--once");
+const help = args.includes("--help") || args.includes("-h");
+
+if (help) {
+  console.log("Usage: node run.js [--dry-run|-n] [--once] [--help|-h]");
+  console.log(
+    "--dry-run, -n : Print configuration and exit without running the bot."
+  );
+  console.log("--once         : Run the bot's main function once and exit.");
+  console.log("--help, -h    : Show this help message.");
+  process.exit(0);
+}
 
 function main() {
   // validate and load configuration
@@ -37,7 +47,14 @@ function main() {
   const apiClient = new ApiClient(config.baseUrl, config.bearerToken);
   const missionSolver = new MissionSolver();
   const bot = new Bot(apiClient, missionSolver, config);
-  bot.start();
+
+  if (once) {
+    console.log("Single run mode enabled — bot will execute once and exit.");
+    bot.once();
+    return;
+  } else {
+    bot.start();
+  }
 }
 
 // Run main immediately

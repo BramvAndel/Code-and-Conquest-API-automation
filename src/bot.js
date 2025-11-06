@@ -18,6 +18,10 @@ class Bot {
     this._runLoopPromise = this._runLoop();
   }
 
+  async once() {
+    await this.main();
+  }
+
   async _runLoop() {
     while (this.running) {
       try {
